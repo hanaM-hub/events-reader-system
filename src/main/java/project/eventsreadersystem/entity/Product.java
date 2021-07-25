@@ -8,10 +8,10 @@ import javax.persistence.Id;
 public class Product {
     /*@Id
     @GeneratedValue(strategy= GenerationType.AUTO)*/
-    private String Type;
-    private String Price;
-    private String StartDate;
-    private String EndDate;
+    public String Type;
+    public String Price;
+    public String StartDate;
+    public String EndDate;
 
     protected Product() {}
 

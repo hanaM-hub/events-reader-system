@@ -5,32 +5,40 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
 @XmlRootElement(name = "Root")
-@JsonFormat(shape = JsonFormat.Shape.OBJECT)
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Request {
-
-   /* @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)*/
-    private Root Root;
-
+    /* @Id
+         @GeneratedValue(strategy= GenerationType.AUTO)*/
+    //@XmlElement
+    public RequestDetails RequestDetails;
+    //@XmlElement
+    public Event[] Event;
     protected Request() {}
 
-    public Request(Root Root) {
-        this.Root = Root;
+    public Request(RequestDetails RequestDetails, Event[] Event) {
+        this.RequestDetails = RequestDetails;
+        this.Event = Event;
     }
 
     @Override
     public String toString() {
         return String.format(
-                "Root");
+                "Request");
     }
 
+    public RequestDetails getRequestDetails() {
+        return RequestDetails;
+    }
 
-    public Root getRoot() {
-        return Root;
+    public Event[] getEvents() {
+        return Event;
     }
 
 }

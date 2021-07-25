@@ -6,6 +6,6 @@ import project.eventsreadersystem.entity.RequestDetails;
 
 import java.util.List;
 
-public interface requestRepository extends CrudRepository<RequestDetails, Long> {
+public interface requestRepository extends CrudRepository<RequestDetails, String> {
     List<Product> findByInsuredId(String lastName);
 }
